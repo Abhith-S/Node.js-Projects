@@ -1,0 +1,26 @@
+const express = require('express')
+const router = express.Router()
+
+//set the and type of request 
+
+router.route("/").get((req,res)=>{
+    res.status(200).json({message:"get all contacts"})
+    
+})
+router.route("/:id").get((req,res)=>{
+    res.status(200).json({message:`get contact ${req.params.id}`})
+    
+})
+router.route("/").post((req,res)=>{
+    res.status(200).json({message:"create contact"})
+})
+router.route("/:id").put((req,res)=>{
+    res.status(200).json({message:`update contact ${req.params.id}`})
+})
+router.route("/:id").delete((req,res)=>{
+    res.status(200).json({message:`delete contact ${req.params.id}`})
+})
+
+
+//export the router to outside 
+module.exports = router;
